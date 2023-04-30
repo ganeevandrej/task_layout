@@ -1,0 +1,70 @@
+@mixin inner-block($padding, $size) {
+  padding: $padding 0;
+  max-width: $size;
+}
+
+@mixin internal-links($width, $font-size) {
+  flex-basis: $width;
+
+  a {
+    @include font(500, $font-size, 'Inter', 19px);
+  }
+}
+
+@mixin content-left($title-size, $title-hs, $subtitle-size) {
+  .title {
+    @include font(400, $title-size, 'Inter', $title-hs);
+  }
+
+  .title-gradient {
+    @include font(700, $title-size, 'Inter', $title-hs);
+  }
+
+  .subtitle {
+    @include font(400, $subtitle-size, 'Montserrat', 22px);
+  }
+}
+
+@mixin shadow($color) {
+  box-shadow: 3px 6px 27px -10px $color;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin font($weight, $size, $font, $line_height) {
+  font-family: $font, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: normal;
+  line-height: $line_height;
+}
+
+@mixin icon($size, $network) {
+  background-image: url("../image/" + $network + ".svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: $size;
+  width: $size;
+}
+
+@mixin figure-position($x, $y, $size, $blur) {
+  position: absolute;
+  top: $x;
+  left: $y;
+  height: $size;
+  width: $size;
+  filter: blur($blur);
+}
+
+@mixin figure-gradient($cl_1, $cl_2, $cl_3, $cl_4, $position) {
+  background: radial-gradient(circle at $position $position, $cl_1, $cl_2 50%, $cl_3 70%, $cl_4);
+}
+
+@mixin figure($opacity: 100%) {
+  z-index: -1;
+  border-radius: 50%;
+  opacity: $opacity;
+}

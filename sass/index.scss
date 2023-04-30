@@ -1,0 +1,591 @@
+@import "variable";
+@import "mixins";
+
+body {
+  margin: 0;
+  background-color: #0E1014;
+  color: $color-text;
+}
+
+a {
+  color: $color-text;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.section-inner {
+  @include inner-block(45px, 1140px);
+  margin: 0 auto;
+  transition: 0.4s;
+}
+
+// === Header ===
+
+.header__top {
+  @include flex-center;
+}
+
+.logo {
+  margin-right: 45px;
+}
+
+.internal_links {
+  @include internal-links(510px, 16px);
+  @include flex-center;
+  flex-basis: 510px;
+  flex-shrink: 2;
+  justify-content: space-between;
+}
+
+.external_links {
+  @include flex-center;
+  justify-content: space-between;
+  flex-basis: 310px;
+  margin-left: auto;
+
+  .phone {
+    @include font(500, 16px, 'Inter', 19px);
+  }
+
+  .networks {
+    @include flex-center;
+    flex-basis: 120px;
+    justify-content: space-between;
+  }
+
+  .telegram { @include icon(20px, "telegram"); }
+  .viber { @include icon(20px, "viber"); }
+  .whatsapp { @include icon(20px, "whatsapp"); }
+}
+
+.header__bottom {
+  @include font(300, 10px, 'Montserrat', 12px);
+  width: 165px;
+}
+
+// === /Header ===
+
+// === Content === //
+
+.section-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-window {
+  position: relative;
+}
+
+.content-left {
+  max-width: 360px;
+  .title {
+    @include font(400, 48px, 'Inter', 58px);
+  }
+
+  .title-gradient {
+    @include font(700, 48px, 'Inter', 58px);
+    background-image: linear-gradient(90deg, #FCB045 23%, #FF3F78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    @include font(400, 18px, 'Montserrat', 22px);
+    max-width: 275px;
+  }
+}
+
+.content-right {
+  max-width: 330px;
+  margin-top: 15px;
+
+  .bonuses-mobile {
+    display: none;
+  }
+
+  .btn-consult {
+    @include font(500, 16px, 'Inter', 19px);
+    padding: 21px 35px;
+    border: none;
+    background-color: #4077F3;
+    float: right;
+    margin-top: 30px;
+  }
+}
+
+.description {
+  @include font(500, 18px, 'Inter', 22px);
+  margin-bottom: 40px;
+  text-align: right;
+
+  span {
+    background-image: linear-gradient(90deg, #FCB045 10%, #FF3F78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.bonuses-desktop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .bonus {
+    @include font(400, 16px, 'Montserrat', 20px);
+    max-width: 140px;
+    text-align: right;
+    margin-bottom: 30px;
+
+    &__title {
+      @include font(500, 18px, 'Inter', 22px);
+      margin-bottom: 7px;
+    }
+
+    &__subtitle {
+      text-align: right;
+    }
+  }
+}
+
+// === /Content === //
+
+// === Footer === //
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    @include font(700, 14px, 'Inter', 17px);
+    color: #656566;
+    margin-top: 0;
+  }
+
+  .contacts {
+    text-align: right;
+
+    .networks {
+      display: flex;
+      width: 80px;
+      justify-content: space-between;
+      margin-left: auto;
+    }
+  }
+
+  a {
+    @include font(400, 16px, 'Inter', 19px);
+    margin-bottom: 10px;
+  }
+
+  .menu-items {
+    display: flex;
+  }
+}
+
+.menu-block-links {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 195px;
+}
+
+.contacts-block-links {
+  display: flex;
+  flex-direction: column;
+  max-width: 230px;
+
+  a {
+    @include font(400, 16px, 'Inter', 19px);
+    margin-bottom: 20px;
+  }
+}
+
+.company-block-links {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    @include font(400, 16px, 'Inter', 19px);
+    margin-bottom: 10px;
+  }
+}
+
+.footer__bottom {
+  @include font(400, 12px, 'Montserrat', 15px);
+  text-align: right;
+  margin-top: 30px;
+
+  .safety {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      margin-top: 5px;
+    }
+  }
+}
+
+// === /Footer === //
+
+.ball-1 {
+  @include figure-position(-150px, 600px, 260px, 260px);
+  @include figure;
+  background-color: #833AB4;
+}
+
+.ball-5 {
+  @include figure-position(251px, -102px, 310px, 200px);
+  @include figure;
+  background-color: #961A1A;
+}
+
+.ball-2 {
+  @include figure(80%);
+  @include shadow($color-figure-shadow-1);
+  @include figure-position(-2px, 800px, 60px, 4px);
+  @include figure-gradient($color-figure-gradient-1, $color-figure-gradient-2,
+          $color-figure-gradient-3, $color-figure-gradient-4, 20px);
+}
+
+.ball-3 {
+  @include figure(80%);
+  @include shadow($color-figure-shadow-2);
+  @include figure-position(83px, 520px, 83px, 2px);
+  @include figure-gradient($color-figure-gradient-5, $color-figure-gradient-6,
+          $color-figure-gradient-7, $color-figure-gradient-8, 25px);
+}
+
+.ball-4 {
+  @include figure(80%);
+  @include shadow($color-figure-shadow-2);
+  @include figure-position(547px, 831px, 28px, 2px);
+  @include figure-gradient($color-figure-gradient-5, $color-figure-gradient-6,
+          $color-figure-gradient-7, $color-figure-gradient-8, 5px);
+}
+
+@media screen and (max-width: 1279px) {
+  .section-inner {
+    @include inner-block(35px, 950px);
+  }
+
+  .logo {
+    margin-right: 30px;
+  }
+
+  .internal_links {
+    @include internal-links(470px, 16px);
+  }
+
+  .external_links {
+    flex-basis: 270px;
+
+    .phone {
+      @include font(400, 14px, 'Inter', 17px);
+    }
+
+    .networks {
+      flex-basis: 100px;
+    }
+  }
+
+  .ball-4 {
+    @include figure-position(547px, 661px, 28px, 2px);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .section-inner {
+    @include inner-block(30px, 850px);
+  }
+
+  .logo {
+    margin-right: 20px;
+  }
+
+  .internal_links {
+    @include internal-links(430px, 15px);
+  }
+
+  .external_links {
+    flex-basis: 240px;
+  }
+
+  .footer__top {
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .ball-4, .ball-2, .ball-1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .section-inner {
+    @include inner-block(25px, 700px);
+  }
+
+  .logo {
+    margin-right: 15px;
+  }
+
+  .internal_links {
+    @include internal-links(400px, 14px);
+    align-items: center;
+  }
+
+  .external_links {
+    flex-basis: 120px;
+    justify-content: end;
+  }
+
+  .footer__top {
+    a {
+      font-size: 13px;
+    }
+  }
+
+  .ball-3, .phone {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-inner {
+    @include inner-block(20px, 550px);
+  }
+
+  .header__top {
+    flex-wrap: wrap;
+  }
+
+  .internal_links {
+    @include internal-links(540px, 18px);
+    margin-top: 20px;
+    order: 1;
+  }
+
+  .external_links {
+    .telegram { @include icon(25px, "telegram"); }
+    .viber { @include icon(25px, "viber"); }
+    .whatsapp { @include icon(25px, "whatsapp"); }
+  }
+
+  .section-content {
+    flex-direction: column;
+  }
+
+  .content-left {
+    @include content-left(40px, 51px, 16px);
+  }
+
+  .content-right {
+    align-self: flex-end;
+    max-width: 270px;
+
+    .btn-consult {
+      font-size: 14px;
+      padding: 15px 25px;
+      margin-top: 15px;
+    }
+  }
+
+  .description {
+    margin-bottom: 20px;
+  }
+
+  .bonuses-desktop {
+    .bonus {
+      @include font(400, 14px, 'Montserrat', 20px);
+      max-width: 120px;
+      margin-bottom: 15px;
+
+      &__title {
+        @include font(500, 16px, 'Inter', 20px);
+        margin-bottom: 10px;
+      }
+
+      &__subtitle {
+        text-align: right;
+      }
+    }
+  }
+
+  .footer__top {
+    a {
+      font-size: 12px;
+    }
+
+    .contacts {
+      max-width: 160px;
+    }
+  }
+
+  .footer__bottom {
+    margin-top: 15px;
+
+    a {
+      font-size: 10px;
+    }
+  }
+
+  .header__bottom {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .section-inner {
+    @include inner-block(20px, 450px);
+  }
+
+  .internal_links {
+    @include internal-links(470px, 16px);
+  }
+
+  .content-window {
+    overflow: hidden;
+    background: url("../image/noise.png") repeat;
+    background-size: cover;
+
+    :before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: -2;
+      opacity: 15%;
+      backdrop-filter: blur(7.5px);
+      background: radial-gradient(circle at -10px -10px,
+              rgba(255, 246, 233, 0.1) 0%,
+              rgba(26, 29, 35, 0.1) 26.62%,
+              rgba(26, 29, 35, 0.1) 52.1%,
+              rgba(26, 29, 35, 0.01) 70.17%,
+              rgba(26, 29, 35, 0) 100%);
+    }
+  }
+
+  .content-right {
+    align-self: flex-start;
+    max-width: 270px;
+
+    .btn-consult {
+      float: left;
+    }
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .ball-2 {
+    display: block;
+    @include figure-position(180px, 220px, 50px, 2px);
+  }
+
+  .ball-3 {
+    display: block;
+    @include figure-position(470px, 330px, 60px, 2px);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .section-inner {
+    @include inner-block(20px, 280px);
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
+  .internal_links {
+    @include internal-links(470px, 12px); // 15px
+  }
+
+  .external_links {
+    flex-basis: 100px;
+  }
+
+  .content-left {
+    @include content-left(36px, 44px, 18px);
+  }
+
+  .content-right {
+    margin-top: 45px;
+
+    .bonuses-mobile {
+      display: flex;
+      flex-wrap: wrap;
+      @include font(400, 13px, 'Montserrat', 16px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+
+      div {
+        position: relative;
+        box-sizing: border-box;
+        min-width: 100px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        margin-right: 10px;
+      }
+
+      div:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: -15px;
+        width: 10px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(252, 176, 69, 1) 25%, rgba(253, 29, 29, 1));
+      }
+    }
+  }
+
+  .footer__top {
+    flex-wrap: wrap;
+
+    .contacts {
+      text-align: left;
+
+      .networks {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .footer__bottom {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .ball-1 {
+    display: block;
+    @include figure-position(100px, 200px, 260px, 196px);
+    @include figure(50%);
+  }
+
+  .ball-5 {
+    @include figure-position(150px, -100px, 210px, 196px);
+    @include figure(50%);
+  }
+
+  .ball-3 {
+    @include figure-position(480px, 10px, 43px, 0px);
+    z-index: -3;
+  }
+
+  .ball-2 {
+    @include figure-position(280px, 230px, 40px, 0px);
+    z-index: -3;
+  }
+
+  .certificates, .btn-consult, .bonuses-desktop {
+    display: none;
+  }
+}
